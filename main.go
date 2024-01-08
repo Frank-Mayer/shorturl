@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"net/http"
 	"os"
 	"strings"
@@ -11,6 +12,10 @@ import (
 
 const (
 	filename = "urls.txt"
+)
+
+var (
+	test = flag.Bool("test", false, "run tests")
 )
 
 type entry struct {
@@ -87,6 +92,50 @@ func logLevel() log.Level {
 }
 
 func main() {
+	flag.Parse()
+
+	if *test {
+		testing()
+	} else {
+		server()
+	}
+}
+
+func testing() {
+	log.SetLevel(logLevel())
+	entries, err := entries(filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// look for duplicate ids
+outer:
+	for i, e := range entries {
+		for j, e2 := range entries {
+			if i <= j {
+				continue
+			}
+			if e.id == e2.id {
+				log.Error(
+					"duplicate id",
+					"id", e.id,
+					"index", i,
+					"url1", e.url,
+					"url2", e2.url,
+				)
+				continue outer
+			}
+		}
+		log.Info(
+			"no duplicate id",
+			"id", e.id,
+			"index", i,
+			"url", e.url,
+		)
+	}
+}
+
+func server() {
 	log.SetLevel(logLevel())
 	entries, err := entries(filename)
 	if err != nil {
