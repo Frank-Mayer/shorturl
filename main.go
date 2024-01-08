@@ -62,24 +62,48 @@ func port() string {
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
+		log.Warn("no PORT environment variable found, defaulting to " + port)
 	}
 	return port
 }
 
+func logLevel() log.Level {
+	level := os.Getenv("LOG_LEVEL")
+	if level == "" {
+		level = "info"
+	}
+	switch level {
+	case "debug":
+		return log.DebugLevel
+	case "info":
+		return log.InfoLevel
+	case "warn":
+		return log.WarnLevel
+	case "error":
+		return log.ErrorLevel
+	}
+	log.Warn("invalid LOG_LEVEL environment variable found, defaulting to info")
+	return log.InfoLevel
+}
+
 func main() {
+	log.SetLevel(logLevel())
 	entries, err := entries(filename)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	for _, e := range entries {
+		e := e
 		http.HandleFunc("/"+e.id, func(w http.ResponseWriter, r *http.Request) {
 			http.Redirect(w, r, e.url, http.StatusTemporaryRedirect)
+			log.Debug("redirecting", "id", e.id, "url", e.url)
 		})
 		log.Info("registered url", "id", e.id, "url", e.url)
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		log.Debug("redirecting", "id", "root", "url", "https://frankmayer.dev")
 		http.Redirect(w, r, "https://frankmayer.dev", http.StatusTemporaryRedirect)
 	})
 
