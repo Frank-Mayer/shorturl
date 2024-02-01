@@ -9,3 +9,5 @@ v_model=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/model_veri.w
 v_jungle=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/jungle_veri.webp
 v_fußball=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/fu%C3%9Fball_veri.webp
 v_astronaut=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/astronaut_veri.webp
+v_2_0=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/Bus_2018_innen_vergr_web.jpeg
+v_2_1=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/harmonie-haupteingang.jpeg
