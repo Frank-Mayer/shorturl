@@ -1,2 +1,11 @@
 ge=https://frank-mayer.github.io/slides/game_engine/index.pdf
 game_engine_yt=https://youtu.be/q2sjiOedsqg
+v_urlaub=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/urlaub_veri.webp
+v_ted=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/ted_veri.webp
+v_popstar1=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/popstarbts_veri.webp
+v_popstar2=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/Popstar_veri.webp
+v_politik=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/politik_veri.webp
+v_model=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/model_veri.webp
+v_jungle=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/jungle_veri.webp
+v_fußball=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/fu%C3%9Fball_veri.webp
+v_astronaut=https://raw.githubusercontent.com/Frank-Mayer/inno-lab/main/astronaut_veri.webp
